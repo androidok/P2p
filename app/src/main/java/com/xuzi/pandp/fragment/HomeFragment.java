@@ -30,7 +30,6 @@ public class HomeFragment extends Fragment {
         View view = UiUtils.inflate(R.layout.fragment_home);
         ButterKnife.bind(this, view);
         initTitle();
-
         return view;
     }
 
