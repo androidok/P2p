@@ -17,37 +17,38 @@ import com.xuzi.pandp.fragment.MoreFragment;
 import com.xuzi.pandp.fragment.TouziFragment;
 import com.xuzi.pandp.util.UiUtils;
 
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends FragmentActivity {
 
-    @BindView(R.id.content)
+
+    @Bind(R.id.content)
     FrameLayout content;
-    @BindView(R.id.iv_home)
+    @Bind(R.id.iv_home)
     ImageView ivHome;
-    @BindView(R.id.tv_home)
+    @Bind(R.id.tv_home)
     TextView tvHome;
-    @BindView(R.id.ll_home)
+    @Bind(R.id.ll_home)
     LinearLayout llHome;
-    @BindView(R.id.iv_touzi)
+    @Bind(R.id.iv_touzi)
     ImageView ivTouzi;
-    @BindView(R.id.tv_touzi)
+    @Bind(R.id.tv_touzi)
     TextView tvTouzi;
-    @BindView(R.id.ll_touzi)
+    @Bind(R.id.ll_touzi)
     LinearLayout llTouzi;
-    @BindView(R.id.iv_me)
+    @Bind(R.id.iv_me)
     ImageView ivMe;
-    @BindView(R.id.tv_me)
+    @Bind(R.id.tv_me)
     TextView tvMe;
-    @BindView(R.id.ll_me)
+    @Bind(R.id.ll_me)
     LinearLayout llMe;
-    @BindView(R.id.iv_more)
+    @Bind(R.id.iv_more)
     ImageView ivMore;
-    @BindView(R.id.tv_more)
+    @Bind(R.id.tv_more)
     TextView tvMore;
-    @BindView(R.id.ll_more)
+    @Bind(R.id.ll_more)
     LinearLayout llMore;
     private HomeFragment homeFragment;
     private TouziFragment touziFragment;
@@ -108,6 +109,7 @@ public class MainActivity extends FragmentActivity {
             case 1:
                 //投资
                 if (touziFragment == null) {
+
                     touziFragment = new TouziFragment();
                     transaction.add(R.id.content, touziFragment);
                 }

@@ -106,7 +106,7 @@
                 android:src="@mipmap/bid08"/>
 
             <TextView
-                android:id="@+id/tv__more"
+                android:id="@+id/tv_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"

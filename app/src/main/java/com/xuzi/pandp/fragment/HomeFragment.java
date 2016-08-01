@@ -12,15 +12,16 @@ import android.widget.TextView;
 import com.xuzi.pandp.R;
 import com.xuzi.pandp.util.UiUtils;
 
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class HomeFragment extends Fragment {
-    @BindView(R.id.title_letf)
+
+    @Bind(R.id.title_letf)
     ImageView titleLetf;
-    @BindView(R.id.title_tv)
+    @Bind(R.id.title_tv)
     TextView titleTv;
-    @BindView(R.id.title_right)
+    @Bind(R.id.title_right)
     ImageView titleRight;
 
     @Nullable
@@ -29,6 +30,7 @@ public class HomeFragment extends Fragment {
         View view = UiUtils.inflate(R.layout.fragment_home);
         ButterKnife.bind(this, view);
         initTitle();
+
         return view;
     }
 
@@ -40,5 +42,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }
