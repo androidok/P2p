@@ -6,7 +6,7 @@ package com.xuzi.pandp.common;
  */
 public class AppNetConfig {
 
-    public static final String HOST = "192.168.56.1";
+    public static final String HOST = "172.16.120.21";
 
     public static final String BASEURL = "http://" + HOST + ":8080/P2PInvest/";
 

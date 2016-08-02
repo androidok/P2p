@@ -22,13 +22,13 @@
                     android:layout_height="match_parent">
                 </android.support.v4.view.ViewPager>
 
-                <Button
+                <com.viewpagerindicator.CirclePageIndicator
                     android:id="@+id/circle_barner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:padding="10dp">
-                </Button>
+                </com.viewpagerindicator.CirclePageIndicator>
             </FrameLayout>
 
 
