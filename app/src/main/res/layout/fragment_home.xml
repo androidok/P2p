@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <include layout="@layout/common_top"/>
     <com.xuzi.pandp.ui.MyScrollView
@@ -14,7 +15,7 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp">
+                android:layout_height="180dp">
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/vp_barner"
@@ -47,7 +48,7 @@
                     android:drawableRight="@mipmap/recommend"
                     android:text="乐享活180天计划第一期"
                     android:textColor="#303030"
-                    android:textSize="20sp"/>
+                    android:textSize="22sp"/>
             </RelativeLayout>
 
             <LinearLayout
@@ -97,11 +98,16 @@
 
                 <!--#18b4ed-->
                 <!-- 圆环进度-->
-                <Button
+                <com.xuzi.pandp.ui.RoundProgress
                     android:id="@+id/p_progresss"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp">
-                </Button>
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    app:roundColor="@android:color/darker_gray"
+                    app:roundProgressColor="@android:color/holo_red_dark"
+                    app:roundWidth="10dp"
+                    app:textColor="#18b4ed"
+                    app:textSize="25sp">
+                </com.xuzi.pandp.ui.RoundProgress>
             </RelativeLayout>
 
             <LinearLayout

@@ -1,6 +1,8 @@
 package com.xuzi.pandp.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
@@ -26,6 +28,7 @@ import com.xuzi.pandp.entity.Image;
 import com.xuzi.pandp.entity.Index;
 import com.xuzi.pandp.entity.Product;
 import com.xuzi.pandp.ui.MyScrollView;
+import com.xuzi.pandp.ui.RoundProgress;
 import com.xuzi.pandp.util.UiUtils;
 
 import java.util.List;
@@ -41,7 +44,7 @@ public class HomeFragment extends Fragment {
     @Bind(R.id.textView1)
     TextView textView1;
     @Bind(R.id.p_progresss)
-    Button pProgresss;
+    RoundProgress pProgresss;
     @Bind(R.id.p_yearlv)
     TextView pYearlv;
     @Bind(R.id.button1)
@@ -57,6 +60,7 @@ public class HomeFragment extends Fragment {
     @Bind(R.id.title_right)
     ImageView titleRight;
     private Index index;
+    private int totalProgress;
 
     @Nullable
     @Override
@@ -84,6 +88,20 @@ public class HomeFragment extends Fragment {
                 vpBarner.setAdapter(new MyAdapter());
                 //将viewpager交给指示器
                 circleBarner.setViewPager(vpBarner);
+                totalProgress = Integer.parseInt(index.product.progress);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        int tempProhress = 0;
+                        while (tempProhress <= totalProgress) {
+                            int rs = tempProhress * 2;
+                            pProgresss.setProgress(tempProhress);
+                            pProgresss.setRoundProgressColor(Color.argb(55 + rs, 55 + rs, 200 - rs, 200 - rs));
+                            tempProhress++;
+                            SystemClock.sleep(50);
+                        }
+                    }
+                }).start();
             }
 
             @Override
