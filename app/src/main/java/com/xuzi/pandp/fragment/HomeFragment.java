@@ -1,14 +1,10 @@
 package com.xuzi.pandp.fragment;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -29,14 +25,12 @@ import com.xuzi.pandp.entity.Index;
 import com.xuzi.pandp.entity.Product;
 import com.xuzi.pandp.ui.MyScrollView;
 import com.xuzi.pandp.ui.RoundProgress;
-import com.xuzi.pandp.util.UiUtils;
 
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragmrnt {
     @Bind(R.id.vp_barner)
     ViewPager vpBarner;
     @Bind(R.id.circle_barner)
@@ -62,17 +56,8 @@ public class HomeFragment extends Fragment {
     private Index index;
     private int totalProgress;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = UiUtils.inflate(R.layout.fragment_home);
-        ButterKnife.bind(this, view);
-        initTitle();
-        initData();
-        return view;
-    }
-
-    private void initData() {
+    protected void initData() {
         index = new Index();
         client.post(AppNetConfig.INDEX, new AsyncHttpResponseHandler() {
             @Override
@@ -111,16 +96,17 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void initTitle() {
+    @Override
+    protected void initTitle() {
         titleLetf.setVisibility(View.INVISIBLE);
         titleRight.setVisibility(View.INVISIBLE);
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
+    protected int getLayoutId() {
+        return R.layout.fragment_home;
     }
+
 
     private class MyAdapter extends PagerAdapter {
         @Override
