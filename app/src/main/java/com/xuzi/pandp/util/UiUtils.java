@@ -52,4 +52,25 @@ public class UiUtils {
         float density = getContext().getResources().getDisplayMetrics().densityDpi;
         return (int) (px / density + 0.5);
     }
+
+    /**
+     * 主线程执行，保证了runnable在主线程中运行
+     * @param runnable
+     */
+    public static void runOnUIThread(Runnable runnable) {
+        if (isInMainThread()) {
+            runnable.run();
+        }else {
+            getHander().post(runnable);
+        }
+    }
+
+    /**
+     * 判断当前线程是否是主线程
+     *
+     * @return
+     */
+    public static boolean isInMainThread() {
+        return android.os.Process.myTid() == XuziApplication.mainThreadId;
+    }
 }
