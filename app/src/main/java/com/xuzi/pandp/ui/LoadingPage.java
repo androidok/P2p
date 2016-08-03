@@ -35,6 +35,7 @@ public abstract class LoadingPage extends FrameLayout {
     private LayoutParams lp;
 
     private ResultState resultState = null;
+    private Context mContext;
 
 
     public LoadingPage(Context context) {
@@ -47,6 +48,7 @@ public abstract class LoadingPage extends FrameLayout {
 
     public LoadingPage(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.mContext = context;
         init();
     }
 
@@ -88,7 +90,7 @@ public abstract class LoadingPage extends FrameLayout {
         errorView.setVisibility(PAGE_CURRENT_STATE == PAGE_ERROR_STATE ? VISIBLE : GONE);
         emptyView.setVisibility(PAGE_CURRENT_STATE == PAGE_EMPTY_STATE ? VISIBLE : GONE);
         if (successView == null) {
-            successView = UiUtils.inflate(LayoutId());
+            successView = View.inflate(mContext, LayoutId(), null);
             addView(successView, lp);
         }
         successView.setVisibility(PAGE_CURRENT_STATE == PAGE_SUCCESS_STATE ? VISIBLE : GONE);
@@ -116,7 +118,7 @@ public abstract class LoadingPage extends FrameLayout {
             asyncHttpClient.get(url(), params(), new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(String content) {
-                    Log.e("xuzi","comtent:"+content);
+                    Log.e("xuzi", "comtent:" + content);
                     if (TextUtils.isEmpty(content)) {
                         resultState = resultState.EMPTY;
                         resultState.setContent("");
@@ -164,12 +166,14 @@ public abstract class LoadingPage extends FrameLayout {
 
     /**
      * 网络请求参数
+     *
      * @return
      */
     protected abstract RequestParams params();
 
     /**
      * 网络请求地址
+     *
      * @return
      */
     protected abstract String url();
