@@ -1,4 +1,4 @@
-package com.xuzi.pandp.fragment;
+package com.xuzi.pandp.common;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

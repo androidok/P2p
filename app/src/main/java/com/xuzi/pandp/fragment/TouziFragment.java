@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.loopj.android.http.RequestParams;
 import com.viewpagerindicator.TabPageIndicator;
 import com.xuzi.pandp.R;
+import com.xuzi.pandp.common.BaseFragmrnt;
 import com.xuzi.pandp.ui.LoadingPage;
 import com.xuzi.pandp.util.UiUtils;
 

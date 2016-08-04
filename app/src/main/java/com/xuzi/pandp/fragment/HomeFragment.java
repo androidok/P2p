@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.xuzi.pandp.R;
 import com.xuzi.pandp.common.AppNetConfig;
+import com.xuzi.pandp.common.BaseFragmrnt;
 import com.xuzi.pandp.entity.Image;
 import com.xuzi.pandp.entity.Index;
 import com.xuzi.pandp.entity.Product;
@@ -140,4 +141,5 @@ public class HomeFragment extends BaseFragmrnt {
             container.removeView((View) object);
         }
     }
+
 }
